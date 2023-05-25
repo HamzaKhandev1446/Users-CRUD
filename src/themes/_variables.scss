@@ -1,0 +1,115 @@
+:root {
+    --mf-primary: #d90615;
+    --mf-secondary: #000000;
+    --mf-background: #f3f3f3;
+    --mf-bg-light: #f6f6f6;
+    --mf-links: #ffffff;
+    --mf-heading-color: #000000;
+    --mf-sub-heading-color: #000000;
+    --mf-text-color: #333333;
+    --mf-text-color-secondary: #000000;
+    --mf-text-para-color: #6a6a6a;
+    --mf-text-list-color: #b7b7b7;
+    --mf-border-light-color: rgba(0, 0, 0, 0.15);
+    --mf-box-shadow: #a0a0a0;
+    --mf-box-shadow-second: #dadada;
+    --mf-menu-background: #777777;
+    --mf-menu-bg-dark: #2b2b2b;
+    --mf-header-background: #000000;
+    --mf-error-color: #d9534f;
+    --mf-transparent: transparent;
+    --mf-white: #ffffff;
+    --mf-off-white: #e9e9e9;
+    --mf-text-black: #000000;
+    --mf-background-black: #000000;
+    --mf-priamry-green: #54bf1d;
+    --mf-priamry-border-dark-gray: #292e34;
+    --mf-medium-gray: #707070;
+    --mf-light-gray: #eeeeee;
+    --mf-light-third-gray: #f9f9f9;
+    --mf-light-forth-gray: #c9c9c9;
+    --mf-light-fifth-gray: #f7f7f7;
+    --mf-light-sixth-gray: #dedede;
+    --mf-sucess-shade-color: rgba(188, 248, 164, 0.2);
+    --mf-reset-btn-shade-color: rgb(180, 177, 177);
+    --mf-snackbar-error-bgcolor: #d90615;
+    --mf-snackbar-success-bgcolor: #54bf1d;
+    --mf-snackbar-warn-bgcolor: #ed6c02;
+    --mf-snackbar-info-bgcolor: #0288d1;
+    --mf-snackbar-box-shadow-first: rgb(0 0 0 / 20%) 0px 3px 5px -1px;
+    --mf-snackbar-box-shadow-second: rgb(0 0 0 / 14%) 0px 6px 10px 0px;
+    --mf-snackbar-box-shadow-third: rgb(0 0 0 / 12%) 0px 1px 18px 0px;
+    --mf-selected-item-gray-color: rgba(0, 0, 0, 0.04);
+    --mf-border-radius-color: rgba(41, 46, 52, 0.3);
+    --mf-modal-box-shadow-grey: rgba(38, 38, 38, 0.41);
+  }
+  
+  /*
+  * colors
+  */
+  
+  $primary: var(--mf-primary);
+  $secondary: var(--mf-secondary);
+  $background: var(--mf-background);
+  $backgroundLight: var(--mf-bg-light);
+  $linksColor: var(--mf-links);
+  $headingColor: var(--mf-heading-color);
+  $subHeadingColor: var(--mf-sub-heading-color);
+  $textColor: var(--mf-text-color);
+  $textColorSecondary: var(--mf-text-color-secondary);
+  $textParaColor: var(--mf-text-para-color);
+  $textListColor: var(--mf-text-list-color);
+  $menuBackground: var(--mf-menu-background);
+  $boxShadow: var(--mf-box-shadow);
+  $boxShadowSecond: var(--mf-box-shadow-second);
+  $menuBgDark: var(--mf-menu-bg-dark);
+  $headerBackground: var(--mf-header-background);
+  $errorColor: var(--mf-error-color);
+  $transparent: var(--mf-transparent);
+  $white: var(--mf-white);
+  $offWhite: var(--mf-off-white);
+  $textColorBlack: var(--mf-text-black);
+  $textBackgroundBlack: var(--mf-background-black);
+  $primaryGreen: var(--mf-priamry-green);
+  $primaryDarkGray: var(--mf-priamry-border-dark-gray);
+  $lightGray: var(--mf-light-gray);
+  $mediumGray: var(--mf-medium-gray);
+  $lightThirdGray: var(--mf-light-third-gray);
+  $lightForthGray: var(--mf-light-forth-gray);
+  $lightFifthGray: var(--mf-light-fifth-gray);
+  $lightSixthGray: var(--mf-light-sixth-gray);
+  $borderLightColor: var(--mf-border-light-color);
+  $sucessShadeColor: var(--mf-shade-green-color);
+  $resetButtonShadeColor: var(--mf-reset-btn-shade-color);
+  $snackbarErrorBgcolor: var(--mf-snackbar-error-bgcolor);
+  $snackbarSuccessBgcolor: var(--mf-snackbar-success-bgcolor);
+  $snackbarWarnBgcolor: var(--mf-snackbar-warn-bgcolor);
+  $snackbarInfoBgcolor: var(--mf-snackbar-info-bgcolor);
+  $snackbarBoxShadowFirst: var(--mf-snackbar-box-shadow-first);
+  $snackbarBoxShadowSecond: var(--mf-snackbar-box-shadow-second);
+  $snackbarBoxShadowThird: var(--mf-snackbar-box-shadow-third);
+  $selectedItemGrey: var(--mf-selected-item-gray-color);
+  $borderRadiusColor: var(--mf-border-radius-color);
+  $modalBoxShadowGrey: var(--mf-modal-box-shadow-grey);
+  /*
+  * Font-size variables 
+  */
+  
+  $font-sm2: 10px;
+  $font-sm3: 13px;
+  $font-md1: 15px;
+  $font-md2: 16px;
+  $font-md3: 18px;
+  $font-lg1: 24px;
+  
+  /**  Ends here **/
+  
+  /*
+  * Font-family variables 
+  */
+  
+  $box-height: 92vh;
+  
+  $opensans: "Opensans";
+  $gothambold: "GothamBold";
+  

@@ -1,1 +1,24 @@
-<h1 class="pl-5">Welcome !</h1>
+<div class="container-fluid">
+  <div class="row w-100 my-5">
+    <app-navbar></app-navbar>
+  </div>
+
+  <div class="row my-5">
+    <div class="layout-row mx-5 my-5">
+      <section class="layout-column sidebar">
+        <filters
+          [filterType]="status"
+          [filterValues]="statuses"
+          (onFilterSelected)="onFilterSelected($event, 'status')"
+        ></filters>
+        <filters
+          [filterType]="category"
+          [filterValues]="categories"
+          (onFilterSelected)="onFilterSelected($event, 'category')"
+        ></filters>
+      </section>
+
+      <users-list [usersList]="filteredList"></users-list>
+    </div>
+  </div>
+</div>
