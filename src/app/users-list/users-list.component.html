@@ -1,0 +1,17 @@
+<section class="content">
+  <ul class="mr-20 matches styled" data-test-id="survey-list">
+    <li class="slide-up-fade-in survey-details layout-row">
+        <span><b>Name</b></span>
+        <span><b>Email</b></span>
+        <span><b>Age</b></span>
+        <span><b>Designation</b></span>
+    </li>
+    <li  *ngFor="let user of usersList" class="survey-details layout-row slide-up-fade-in">
+<!--       Use below to render list item for each survey object-->
+        <span>{{user.name}}</span>
+        <span>{{user.email}}</span>
+        <span>{{user.age}}</span>
+        <span>{{user.designation}}</span>
+    </li>
+  </ul>
+</section>
