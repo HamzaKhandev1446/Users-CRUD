@@ -9,40 +9,46 @@ import { User } from 'src/types/User';
 })
 export class AppComponent {
   title = 'Users-CRUD';
-  statuses: string[] = ['All', 'Active', 'Completed'];
-  categories: string[] = ['Development', 'Workplace', 'Hardware'];
+  jobModes: string[] = ['Onsite', 'Remote', 'All'];
+  jobTypes: string[] = ['Full-time', 'Part-time', 'Contractual'];
   filteredList!: User[];
 
-  filteredStatus: string = '';
-  filteredCategories: string = '';
+  designations!: string[];
 
-  status = 'status';
-  category = 'category';
+  filteredJobMode: string = '';
+  filteredJobType: string = '';
 
-  usersList: User[] = USERS
+  jobType = 'Job Type';
+  jobMode = 'Job Mode';
+
+  usersList: User[] = USERS;
 
   ngOnInit() {
     this.filteredList = this.usersList;
+    this.designations = this.extractValidData(this.usersList);
   }
 
   onFilterSelected(filter: string, type: string) {
-    // type === 'status'
-    //   ? (this.filteredStatus = filter)
-    //   : (this.filteredCategories = filter);
+    type === 'jobMode'
+      ? (this.filteredJobMode = filter)
+      : (this.filteredJobType = filter);
+    this.filteredList = this.usersList
+      .filter((user: User) => {
+        if (this.filteredJobMode === 'All' || this.filteredJobMode === '')
+          return user;
+        else {
+          return user.jobMode === this.filteredJobMode;
+        }
+      })
+      .filter((user: User) => {
+        if (this.filteredJobType === '') return user;
+        else {
+          return user.jobType === this.filteredJobType;
+        }
+      });
+  }
 
-    // this.filteredList = this.surveyList
-    //   .filter((survey: User) => {
-    //     if (this.filteredStatus === 'All' || this.filteredStatus === '')
-    //       return survey;
-    //     else {
-    //       return survey.status === this.filteredStatus;
-    //     }
-    //   })
-    //   .filter((survey: User) => {
-    //     if (this.filteredCategories === '') return survey;
-    //     else {
-    //       return survey.category === this.filteredCategories;
-    //     }
-    //   });
+  extractValidData(usersList: User[]) {
+    return Array.from(new Set(usersList.map((user) => user.designation)));
   }
 }

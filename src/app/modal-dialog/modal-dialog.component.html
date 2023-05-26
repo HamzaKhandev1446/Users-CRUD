@@ -1,0 +1,154 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ action.toUpperCase() + " USER" }}</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  ></button>
+</div>
+<div class="modal-body">
+  <form class="row g-3" [formGroup]="form">
+    <div class="col-md-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+      />
+    </div>
+    <div class="col-1">
+      <label for="age" class="form-label">Age</label>
+      <input
+        type="number"
+        class="form-control"
+        id="age"
+        formControlName="age"
+      />
+    </div>
+    <div class="col-4">
+      <label for="inputDesignation" class="form-label">Designation</label>
+      <select
+        id="inputDesignation"
+        class="form-select"
+        formControlName="designation"
+      >
+        <option [ngValue]="form.controls.designation.value">
+          {{ formInstance.designation.value }}
+        </option>
+        <option
+          *ngFor="let designation of designations"
+          [ngValue]="designation"
+        >
+          {{ designation }}
+        </option>
+      </select>
+    </div>
+    <div class="row" formGroupName="address">
+      <div class="col-md-12">
+        <label for="inputCity" class="form-label">Street</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputCity"
+          formControlName="street"
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="inputState" class="form-label">State</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputState"
+          formControlName="state"
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="inputCity" class="form-label">City</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputCity"
+          formControlName="city"
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="inputZip" class="form-label">Zip</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputZip"
+          formControlName="zip"
+        />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="inputJobType" class="form-label">Job Type</label>
+      <select id="inputJobType" class="form-select" formControlName="jobType">
+        <option [ngValue]="form.controls.jobType.value">
+          {{ formInstance.jobType.value }}
+        </option>
+        <option *ngFor="let jobType of jobTypes" [ngValue]="jobType">
+          {{ jobType }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-md-6">
+      <label for="inputJobMode" class="form-label">Job Mode</label>
+      <select id="inputJobMode" class="form-select" formControlName="jobMode">
+        <option [ngValue]="form.controls.jobMode.value">
+          {{ formInstance.jobMode.value }}
+        </option>
+        <option *ngFor="let jobMode of jobModes" [ngValue]="jobMode">
+          {{ jobMode }}
+        </option>
+      </select>
+    </div>
+  </form>
+</div>
+
+<div
+  class="modal-footer d-flex flex-row justify-content-center align-items-center"
+>
+  <div class="d-flex flex-row justify-content-center align-items-center mx-5">
+    <button
+      type="button"
+      class="btn btn-outline-dark px-5"
+      (click)="activeModal.dismiss('Cross click')"
+    >
+      {{ action === "view" ? "Close" : "Cancel" }}
+    </button>
+  </div>
+
+  <ng-container *ngIf="action === 'edit'">
+    <div class="d-flex flex-row justify-content-center align-items-center mx-5">
+      <button
+        type="submit"
+        class="btn btn-warning w-100 px-5"
+      >
+        Update
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="action === 'delete'">
+    <div class="d-flex flex-row justify-content-center align-items-center mx-5">
+      <button type="submit" class="btn btn-danger w-100 px-5">Delete</button>
+    </div>
+  </ng-container>
+
+  <!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}-->
+</div>
