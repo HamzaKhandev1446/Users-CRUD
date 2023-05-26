@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { USERS } from './models/users.model';
 import { User } from 'src/types/User';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +24,8 @@ export class AppComponent implements OnInit {
 
   jobType = 'Job Type';
   jobMode = 'Job Mode';
+
+  searchSubject$ = new Subject<string | undefined>();
 
   usersList: User[] = USERS;
 
@@ -113,5 +117,21 @@ export class AppComponent implements OnInit {
     return users.findIndex((findUser: User) => {
       return findUser.id === updatedUser.id;
     });
+  }
+
+  serachQuery(search: string) {
+    this.resetFilters();
+    this.filteredList = this.usersList.filter((obj: any) =>
+      Object.keys(obj).some((key: any) => {
+        let value = obj[key];
+        return typeof value === 'string' && value.includes(search);
+      })
+    );
+  }
+
+  resetFilters() {
+    this.filteredList = this.usersList;
+    this.filteredJobType = this.selectedFilterType = '';
+    this.filteredJobMode = this.selectedFilterMode = '';
   }
 }
