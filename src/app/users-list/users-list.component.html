@@ -1,17 +1,31 @@
 <section class="content">
   <ul class="mr-20 matches styled" data-test-id="survey-list">
-    <li class="slide-up-fade-in survey-details layout-row">
-        <span><b>Name</b></span>
-        <span><b>Email</b></span>
-        <span><b>Age</b></span>
-        <span><b>Designation</b></span>
+    <li class="slide-up-fade-in survey-details layout-row text-center">
+      <span><b>Name</b></span>
+      <span><b>Email</b></span>
+      <span><b>Job Type</b></span>
+      <span><b>Designation</b></span>
+      <span><b>Job Mode</b></span>
+      <span><b>Actions</b></span>
     </li>
-    <li  *ngFor="let user of usersList" class="survey-details layout-row slide-up-fade-in">
-<!--       Use below to render list item for each survey object-->
-        <span>{{user.name}}</span>
-        <span>{{user.email}}</span>
-        <span>{{user.age}}</span>
-        <span>{{user.designation}}</span>
+    <li
+      *ngFor="let user of usersList"
+      class="survey-details layout-row slide-up-fade-in text-center justify-content-center align-items-center"
+    >
+      <!--       Use below to render list item for each survey object-->
+      <span>{{ user.name }}</span>
+      <span>{{ user.email }}</span>
+      <span>{{ user.jobType }}</span>
+      <span>{{ user.designation }}</span>
+      <span>{{ user.jobMode }}</span>
+      <span>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-warning" (click)="upateData(user, 'edit')" >Edit</button>
+          <button type="button" class="btn btn-success" (click)="upateData(user, 'view')">View</button>
+          <button type="button" class="btn btn-danger" (click)="upateData(user, 'delete')">Delete</button>
+        </div>
+      </span>
     </li>
   </ul>
 </section>
+
