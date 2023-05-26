@@ -4,7 +4,7 @@
   </div>
 
   <div class="row my-5">
-    <div class="layout-row mx-5 my-5">
+    <div class="layout-row">
       <section class="layout-column sidebar">
         <filters
           [filterType]="jobMode"
@@ -23,6 +23,8 @@
         [designations]="designations"
         [jobModes]="jobModes"
         [jobTypes]="jobTypes"
+        (submitDeleteUser)="submitDeleteUser($event)"
+        (submitEditUser)="submitEditUser($event)"
       ></users-list>
     </div>
   </div>
