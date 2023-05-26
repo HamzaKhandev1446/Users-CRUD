@@ -9,11 +9,13 @@
         <filters
           [filterType]="jobMode"
           [filterValues]="jobModes"
+          [selectedFilter]="selectedFilterMode"
           (onFilterSelected)="onFilterSelected($event, 'jobMode')"
         ></filters>
         <filters
           [filterType]="jobType"
           [filterValues]="jobTypes"
+          [selectedFilter]="selectedFilterType"
           (onFilterSelected)="onFilterSelected($event, 'jobType')"
         ></filters>
       </section>

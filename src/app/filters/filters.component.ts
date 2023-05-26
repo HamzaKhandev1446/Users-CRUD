@@ -10,13 +10,12 @@ export class Filters implements OnInit {
   @Input() filterType!: string;
   @Input() filterValues!: string[];
   @Output() onFilterSelected: EventEmitter<string> = new EventEmitter<string>();
-  selectedFilter: string = '';
+  @Input() selectedFilter: string = '';
 
   ngOnInit() {
 
   }
   onFilter(filterValue: string) {
     this.onFilterSelected.emit(filterValue);
-    this.selectedFilter=filterValue
   }
 }

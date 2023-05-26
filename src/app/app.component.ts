@@ -12,6 +12,8 @@ export class AppComponent implements OnInit {
   jobModes: string[] = ['Onsite', 'Remote', 'All'];
   jobTypes: string[] = ['Full-time', 'Part-time', 'Contractual'];
   filteredList!: User[];
+  selectedFilterType: string = '';
+  selectedFilterMode: string = '';
 
   designations!: string[];
 
@@ -38,9 +40,15 @@ export class AppComponent implements OnInit {
    */
   onFilterSelected(filter: string, type: string) {
     // Update the filteredJobMode or filteredJobType based on the type
-    type === 'jobMode'
-      ? (this.filteredJobMode = filter)
-      : (this.filteredJobType = filter);
+    if (type === 'jobMode') {
+      this.filteredJobMode === filter
+        ? (this.filteredJobMode = this.selectedFilterMode = '')
+        : (this.filteredJobMode = this.selectedFilterMode = filter);
+    } else {
+      this.filteredJobType === filter
+        ? (this.filteredJobType = this.selectedFilterType = '')
+        : (this.filteredJobType = this.selectedFilterType = filter);
+    }
 
     // Apply filters to the usersList
     this.filteredList = this.usersList
