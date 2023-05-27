@@ -136,6 +136,7 @@
       <button
         type="submit"
         class="btn btn-warning w-100 px-5"
+        (click)="updateUser()"
       >
         Update
       </button>
@@ -144,7 +145,8 @@
 
   <ng-container *ngIf="action === 'delete'">
     <div class="d-flex flex-row justify-content-center align-items-center mx-5">
-      <button type="submit" class="btn btn-danger w-100 px-5">Delete</button>
+      <button type="submit" class="btn btn-danger w-100 px-5"
+      (click)="deleteUser()">Delete</button>
     </div>
   </ng-container>
 
