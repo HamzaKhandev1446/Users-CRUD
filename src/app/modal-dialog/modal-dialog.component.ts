@@ -23,7 +23,11 @@ export class ModalDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.modalForm; // Assign the modalForm to the local form group
-    this.action !== 'edit' ? this.form.disable() : this.form.enable(); // Disable the form for actions other than 'edit'
+    this.action !== 'edit' && this.action !== 'add' ? this.form.disable() : this.form.enable(); // Disable the form for actions other than 'edit'
+  }
+
+  addNewUser() {
+    this.activeModal.close({ data: this.form, action: this.action }); // Close the modal and emit the form data and action to the parent component
   }
 
   updateUser() {

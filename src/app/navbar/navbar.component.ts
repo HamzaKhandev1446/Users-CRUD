@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class NavbarComponent implements OnInit {
   serachString: string=''
   @Output() serachQuery = new EventEmitter<string>();
+  @Output() newUserEmitter = new EventEmitter();
   constructor() {}
 
   ngOnInit(): void {}

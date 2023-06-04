@@ -1,6 +1,9 @@
 <div class="container-fluid">
   <div class="row w-100 my-5">
-    <app-navbar (serachQuery)="serachQuery($event)"></app-navbar>
+    <app-navbar
+      (serachQuery)="serachQuery($event)"
+      (newUserEmitter)="newUserEmitter()"
+    ></app-navbar>
   </div>
 
   <div class="row my-5">
@@ -27,6 +30,7 @@
         [jobTypes]="jobTypes"
         (submitDeleteUser)="submitDeleteUser($event)"
         (submitEditUser)="submitEditUser($event)"
+        (submitAddUser)="submitAddUser($event)"
       ></users-list>
     </div>
   </div>

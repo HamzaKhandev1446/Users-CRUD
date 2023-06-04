@@ -23,6 +23,7 @@ export class UserList implements OnInit {
   @Input() jobTypes: string[] = []; // Input property to receive the list of job types from the parent component
   @Input() jobModes: string[] = []; // Input property to receive the list of job modes from the parent component
 
+  @Output() submitAddUser = new EventEmitter<User>(); // Output property to emit the add user data to the parent component
   @Output() submitEditUser = new EventEmitter<User>(); // Output property to emit the edited user data to the parent component
   @Output() submitDeleteUser = new EventEmitter<User>(); // Output property to emit the deleted user data to the parent component
 
@@ -48,10 +49,9 @@ export class UserList implements OnInit {
     });
   }
 
-  updateData(user: User, operation: 'add' | 'edit' | 'delete' | 'view') {
+  updateData(user: User, operation: 'edit' | 'delete' | 'view') {
     // Patch the user form with the data of the selected user
     this.patchUserForm(user);
-    console.log(this.userFormGroup);
 
     // Open the modal dialog for user interaction
     const modalRef = this.modalService.open(ModalDialogComponent, {
@@ -68,10 +68,6 @@ export class UserList implements OnInit {
     // Subscribe to the closed event of the modal dialog
     modalRef.closed.subscribe((res: any) => {
       switch (res?.action) {
-        case 'add':
-          // Handle the add operation
-          // this.addUser();
-          break;
         case 'edit':
           // Emit the edited user data to the parent component
           this.editUser(res?.data);
@@ -137,5 +133,24 @@ export class UserList implements OnInit {
     };
 
     return user;
+  }
+
+  addNewUser(operation: string) {
+    // Open the modal dialog for user interaction
+    const modalRef = this.modalService.open(ModalDialogComponent, {
+      size: 'xl',
+    });
+
+    // Pass necessary data to the modal dialog component
+    modalRef.componentInstance.modalForm = this.userFormGroup;
+    modalRef.componentInstance.action = operation;
+    modalRef.componentInstance.designations = this.designations;
+    modalRef.componentInstance.jobTypes = this.jobTypes;
+    modalRef.componentInstance.jobModes = this.jobModes;
+
+    // Subscribe to the closed event of the modal dialog
+    modalRef.closed.subscribe((res: any) => {
+      this.submitAddUser.emit(this.extractUserData(res?.data));
+    });
   }
 }

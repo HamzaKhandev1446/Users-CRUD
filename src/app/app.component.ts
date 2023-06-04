@@ -78,6 +78,16 @@ export class AppComponent implements OnInit {
    * Update the user in the usersList.
    * @param updatedUser The updated user object
    */
+  submitAddUser(updatedUser: User) {
+
+    // Add the user at the 0th index with the updated user
+    this.usersList.splice(0, 0, updatedUser);
+  }
+
+  /**
+   * Update the user in the usersList.
+   * @param updatedUser The updated user object
+   */
   submitEditUser(updatedUser: User) {
     // Find the index of the user to be updated
     const userId = this.findUserId(this.usersList, updatedUser);
@@ -133,5 +143,9 @@ export class AppComponent implements OnInit {
     this.filteredList = this.usersList;
     this.filteredJobType = this.selectedFilterType = '';
     this.filteredJobMode = this.selectedFilterMode = '';
+  }
+
+  newUserEmitter() {
+    console.log('clicked');
   }
 }

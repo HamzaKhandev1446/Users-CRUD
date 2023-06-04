@@ -143,6 +143,13 @@
     </div>
   </ng-container>
 
+  <ng-container *ngIf="action === 'add'">
+    <div class="d-flex flex-row justify-content-center align-items-center mx-5">
+      <button type="submit" class="btn btn-success w-100 px-5"
+      (click)="deleteUser()">Add User</button>
+    </div>
+  </ng-container>
+
   <ng-container *ngIf="action === 'delete'">
     <div class="d-flex flex-row justify-content-center align-items-center mx-5">
       <button type="submit" class="btn btn-danger w-100 px-5"

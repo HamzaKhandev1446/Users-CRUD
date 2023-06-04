@@ -1,3 +1,14 @@
+<div
+  class="w-100 d-flex flex-right justify-content-end align-items-right"
+>
+  <div class="mr-50">
+    <button type="button" class="btn btn-success p-3" (click)="addNewUser('add')">
+      Add new User
+      <img src="assets/svg/plus-circle-dotted.svg" class="px-2" />
+    </button>
+  </div>
+</div>
+
 <section class="content">
   <ul class="mr-20 matches styled" data-test-id="survey-list">
     <li class="slide-up-fade-in survey-details layout-row text-center">
@@ -20,12 +31,29 @@
       <span>{{ user.jobMode }}</span>
       <span>
         <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-warning" (click)="updateData(user, 'edit')" >Edit</button>
-          <button type="button" class="btn btn-success" (click)="updateData(user, 'view')">View</button>
-          <button type="button" class="btn btn-danger" (click)="updateData(user, 'delete')">Delete</button>
+          <button
+            type="button"
+            class="btn btn-warning"
+            (click)="updateData(user, 'edit')"
+          >
+            Edit
+          </button>
+          <button
+            type="button"
+            class="btn btn-success"
+            (click)="updateData(user, 'view')"
+          >
+            View
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="updateData(user, 'delete')"
+          >
+            Delete
+          </button>
         </div>
       </span>
     </li>
   </ul>
 </section>
-
